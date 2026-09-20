@@ -186,7 +186,6 @@ Preferences (incluse avec ESP32)
 #define SMOOTH_FONT
 
 #define USE_HSPI_PORT
-```cpp
 
 ESP32OS/
 ├── ESP32OS.ino                 # Point d'entrée
