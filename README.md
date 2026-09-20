@@ -137,3 +137,108 @@ Menu complet avec sous-menus :
 ### 2. Bibliothèques nécessaires
 
 Installation via **Croquis → Inclure une bibliothèque → Gérer les bibliothèques** :
+
+TFT_eSPI (Bodmer)
+
+ESP32Time (FBiego)
+
+ArduinoJson (Benoit Blanchon)
+
+Preferences (incluse avec ESP32)
+
+
+### 3. Configuration TFT_eSPI
+
+**Éditez** `Documents/Arduino/libraries/TFT_eSPI/User_Setup.h` :
+
+```cpp
+#define USER_SETUP_INFO "CYD-2432W328R"
+
+#define ILI9341_2_DRIVER
+#define TFT_WIDTH  240
+#define TFT_HEIGHT 320
+
+#define TFT_RGB_ORDER TFT_BGR
+
+#define TFT_MISO 12
+#define TFT_MOSI 13
+#define TFT_SCLK 14
+#define TFT_CS   15
+#define TFT_DC    2
+#define TFT_RST  -1
+
+#define TFT_BL   27
+#define TFT_BACKLIGHT_ON HIGH
+
+#define TOUCH_CS 33
+
+#define SPI_FREQUENCY       40000000
+#define SPI_READ_FREQUENCY  16000000
+#define SPI_TOUCH_FREQUENCY  2500000
+
+#define LOAD_GLCD
+#define LOAD_FONT2
+#define LOAD_FONT4
+#define LOAD_FONT6
+#define LOAD_FONT7
+#define LOAD_FONT8
+#define LOAD_GFXFF
+#define SMOOTH_FONT
+
+#define USE_HSPI_PORT
+
+ESP32OS/
+├── ESP32OS.ino                 # Point d'entrée
+├── App.h                       # Classe de base des apps
+├── System.h                    # Noyau du système
+├── Launcher.h                  # Home screen
+├── StatusBar.h                 # Barre de statut
+│
+├── CalculatorApp.h             # 🧮 Calculatrice
+├── SettingsApp.h               # ⚙️ Paramètres
+├── ClockApp.h                  # 🕐 Horloge
+├── NotesApp.h                  # 📝 Notes
+├── WiFiApp.h                   # 📶 WiFi
+├── MusicApp.h                  # 🎵 Musique
+├── GalleryApp.h                # 🖼️ Galerie
+├── WeatherApp.h                # ☀️ Météo
+├── GameApp.h                   # 🐍 Snake
+├── FileManagerApp.h            # 📁 Fichiers
+├── CalendarApp.h               # 📅 Calendrier
+├── AlarmApp.h                  # ⏰ Réveil
+├── CameraApp.h                 # 📷 Caméra
+├── PaintApp.h                  # 🎨 Dessin
+├── PongApp.h                   # 🏓 Pong
+├── TicTacToeApp.h              # ⭕ Morpion
+├── SysInfoApp.h                # 📊 Système
+├── ConverterApp.h              # 🔢 Convertisseur
+├── DiceApp.h                   # 🎲 Dés
+└── BookApp.h                   # 📖 Livre
+
+🎯 Roadmap
+✅ Fait (v4.0)
+☑ Boot logo fixe 7s
+☑ Splash animé
+☑ Welcome Screen 4 étapes
+☑ Lock Screen avec cadenas
+☑ Launcher avec dock + 4 pages
+☑ Barre de navigation (Home/Back/Recent)
+☑ Paramètres Android 16 style
+☑ WiFi en arrière-plan
+☑ 20 applications
+☑ 3 thèmes de couleur
+🚧 En cours (v4.1)
+□ Clavier virtuel pour saisie WiFi
+□ Application Météo avec API réelle
+□ Bluetooth (scan + connexion)
+□ Lecteur SD complet
+□ Notifications panneau déroulant
+🔮 Futur (v5.0)
+□ Multi-utilisateurs
+□ Apps récentes (Recent apps réel)
+□ Widget météo/heure sur le home
+□ Personnalisation des icônes
+□ Lecteur audio MP3 (I2S)
+□ Mode économie batterie
+□ Support SD pour apps externes
+□ OTA Update depuis GitHub
